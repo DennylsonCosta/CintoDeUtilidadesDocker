@@ -1,0 +1,151 @@
+
+############################################################
+############ SPRINT
+############################################################
+
+#SISTEMA
+#SISTEMA
+server {
+	listen 80;
+	listen [::]:80;
+	root /desenvolvimento/helio/facilita/sprint_sistema;
+	index index.php index.html index.htm index.nginx-debian.html;
+
+	server_name sistema.sprint.helio.local.d sistema.sprint.helio.179.185.79.83.xip.io;
+
+	location / { try_files $uri $uri/ /index.php?$query_string; }
+
+	location ~ \.php$ {
+		include snippets/fastcgi-php.conf;
+		include snippets/oll.conf;
+		
+		#fastcgi_pass 127.0.0.1:9000;
+	}
+}
+
+#PAINEL
+#PAINEL
+server {
+	listen 80;
+	listen [::]:80;
+	root /desenvolvimento/helio/facilita/sprint_painel/public;
+	index index.php index.html index.htm index.nginx-debian.html;
+
+	server_name painel.sprint.helio.local.d;
+
+	location / { try_files $uri $uri/ /index.php?$query_string; }
+
+	location ~ \.php$ {
+		include snippets/fastcgi-php.conf;
+		include snippets/oll.conf;
+		
+		#fastcgi_pass 127.0.0.1:9000;
+	}
+}
+############################################################
+############ AJUSTES
+############################################################
+
+#SISTEMA
+#SISTEMA
+server {
+	listen 80;
+	listen [::]:80;
+	root /desenvolvimento/helio/facilita/ajustes_sistema;
+	index index.php index.html index.htm index.nginx-debian.html;
+
+	server_name sistema.ajustes.helio.local.d;
+
+	location / { try_files $uri $uri/ /index.php?$query_string; }
+
+	location ~ \.php$ {
+		include snippets/fastcgi-php.conf;
+		include snippets/oll.conf;
+		
+		#fastcgi_pass 127.0.0.1:9000;
+	}
+}
+
+#PAINEL
+#PAINEL
+server {
+	listen 80;
+	listen [::]:80;
+	root /desenvolvimento/helio/facilita/ajustes_painel/public;
+	index index.php index.html index.htm index.nginx-debian.html;
+
+	server_name painel.ajustes.helio.local.d;
+
+	location / { try_files $uri $uri/ /index.php?$query_string; }
+
+	location ~ \.php$ {
+		include snippets/fastcgi-php.conf;
+		include snippets/oll.conf;
+		
+		#fastcgi_pass 127.0.0.1:9000;
+	}
+}
+
+############################################################
+############ LANCAMENTO
+############################################################
+
+#SISTEMA
+#SISTEMA
+server {
+	listen 80;
+	listen [::]:80;
+	root /desenvolvimento/helio/lancamento/sistema;
+	index index.php index.html index.htm index.nginx-debian.html;
+
+	server_name sistema.lancamento.helio.local.d;
+
+	location / { try_files $uri $uri/ /index.php?$query_string; }
+
+	location ~ \.php$ {
+		include snippets/fastcgi-php.conf;
+		include snippets/oll.conf;
+		
+		#fastcgi_pass 127.0.0.1:9000;
+	}
+}
+
+#PAINEL
+#PAINEL
+server {
+	listen 80;
+	listen [::]:80;
+	root /desenvolvimento/helio/lancamento/painel/public;
+	index index.php index.html index.htm index.nginx-debian.html;
+
+	server_name painel.lancamento.helio.local.d;
+
+	location / { try_files $uri $uri/ /index.php?$query_string; }
+
+	location ~ \.php$ {
+		include snippets/fastcgi-php.conf;
+		include snippets/oll.conf;
+		
+		#fastcgi_pass 127.0.0.1:9000;
+	}
+}
+
+#MOBILE AJUSTES
+#MOBILE AJUSTES
+server {
+        listen 80;
+        listen [::]:80;
+        root /desenvolvimento/helio/facilita/ajustes_mobile/mobile_novo/app;
+        index index.php index.html index.htm index.nginx-debian.html;
+
+        server_name mobile.ajustes.helio.local.d;
+
+        location / { try_files $uri $uri/ /index.php?$query_string; }
+
+        location ~ \.php$ {
+                include snippets/fastcgi-php.conf;
+                include snippets/oll.conf;
+
+                #fastcgi_pass 127.0.0.1:9000;
+        }
+}

@@ -1,0 +1,77 @@
+#Rychard
+server {
+        listen 80;
+        listen [::]:80;
+        root /desenvolvimento/dennylson/testes/rychard;
+        index index.php index.html index.htm index.nginx-debian.html;
+
+        server_name teste.rychard.local.d;
+
+        location / { try_files $uri $uri/ /index.php?$query_string; }
+
+        location ~ \.php$ {
+                include snippets/fastcgi-php.conf;
+                include snippets/oll.conf;
+
+                #fastcgi_pass 127.0.0.1:9000;
+        }
+}
+
+#Icaro
+server {
+        listen 80;
+        listen [::]:80;
+        root /desenvolvimento/dennylson/testes/icaro/public;
+        index index.php index.html index.htm index.nginx-debian.html;
+
+        server_name teste.icaro.local.d;
+
+        location / { try_files $uri $uri/ /index.php?$query_string; }
+
+        location ~ \.php$ {
+#		fastcgi_pass unix:/var/run/php7.2-fpm.sock
+#		include	fastcgi_params;
+#		fastcgi_param   SCRIPT_FILENAME    $document_root$fastcgi_script_name;
+#		fastcgi_param   SCRIPT_NAME        $fastcgi_script_name;
+                
+		include snippets/fastcgi-php.conf;
+                include snippets/dennys.conf;
+                #fastcgi_pass 127.0.0.1:9000;
+        }
+}
+#filipe
+
+server {
+        listen 80;
+        listen [::]:80;
+        root /desenvolvimento/dennylson/testes/filipe/api/public;
+        index index.php index.html index.htm index.nginx-debian.html;
+
+        server_name teste.filipeapi.local.d;
+
+        location / { try_files $uri $uri/ /index.php?$query_string; }
+
+        location ~ \.php$ {
+                include snippets/fastcgi-php.conf;
+                include snippets/dennys.conf;
+
+                #fastcgi_pass 127.0.0.1:9000;
+        }
+}
+server {
+        listen 80;
+        listen [::]:80;
+        root /desenvolvimento/dennylson/testes/filipe/painel/public;
+        index index.php index.html index.htm index.nginx-debian.html;
+
+        server_name teste.filipe.local.d;
+
+        location / { try_files $uri $uri/ /index.php?$query_string; }
+
+        location ~ \.php$ {
+                include snippets/fastcgi-php.conf;
+                include snippets/dennys.conf;
+
+                #fastcgi_pass 127.0.0.1:9000;
+        }
+}

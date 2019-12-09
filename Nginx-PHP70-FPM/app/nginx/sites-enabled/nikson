@@ -1,0 +1,108 @@
+
+############################################################
+############ SPRINT
+############################################################
+
+#SISTEMA
+#SISTEMA
+server {
+	listen 80;
+	listen [::]:80;
+	root /desenvolvimento/nikson/facilita/sprint_sistema;
+	index index.php index.html index.htm index.nginx-debian.html;
+
+	server_name sistema.sprint.nikson.local.d;
+
+	location / { try_files $uri $uri/ /index.php?$query_string; }
+
+	location ~ \.php$ {
+		include snippets/fastcgi-php.conf;
+		include snippets/oll.conf;
+		
+		#fastcgi_pass 127.0.0.1:9000;
+	}
+}
+
+#PAINEL
+#PAINEL
+server {
+	listen 80;
+	listen [::]:80;
+	root /desenvolvimento/nikson/facilita/sprint_painel/public;
+	index index.php index.html index.htm index.nginx-debian.html;
+
+	server_name painel.sprint.nikson.local.d;
+
+	location / { try_files $uri $uri/ /index.php?$query_string; }
+
+	location ~ \.php$ {
+		include snippets/fastcgi-php.conf;
+		include snippets/oll.conf;
+		
+		#fastcgi_pass 127.0.0.1:9000;
+	}
+}
+############################################################
+############ AJUSTES
+############################################################
+
+#SISTEMA
+#SISTEMA
+server {
+	listen 80;
+	listen [::]:80;
+	root /desenvolvimento/nikson/facilita/ajustes_sistema;
+	index index.php index.html index.htm index.nginx-debian.html;
+
+	server_name sistema.ajustes.nikson.local.d;
+
+	location / { try_files $uri $uri/ /index.php?$query_string; }
+
+	location ~ \.php$ {
+		include snippets/fastcgi-php.conf;
+		include snippets/oll.conf;
+		
+		#fastcgi_pass 127.0.0.1:9000;
+	}
+}
+
+#PAINEL
+#PAINEL
+server {
+	listen 80;
+	listen [::]:80;
+	root /desenvolvimento/nikson/facilita/ajustes_painel/public;
+	index index.php index.html index.htm index.nginx-debian.html;
+
+	server_name painel.ajustes.nikson.local.d;
+
+	location / { try_files $uri $uri/ /index.php?$query_string; }
+
+	location ~ \.php$ {
+		include snippets/fastcgi-php.conf;
+		include snippets/oll.conf;
+		
+		#fastcgi_pass 127.0.0.1:9000;
+	}
+}
+
+
+#MOBILE AJUSTES
+#MOBILE AJUSTES
+server {
+        listen 80;
+        listen [::]:80;
+        root /desenvolvimento/nikson/facilita/ajustes_mobile/mobile_novo/app;
+        index index.php index.html index.htm index.nginx-debian.html;
+
+        server_name mobile.ajustes.nikson.local.d;
+
+        location / { try_files $uri $uri/ /index.php?$query_string; }
+
+        location ~ \.php$ {
+                include snippets/fastcgi-php.conf;
+                include snippets/oll.conf;
+
+                #fastcgi_pass 127.0.0.1:9000;
+        }
+}

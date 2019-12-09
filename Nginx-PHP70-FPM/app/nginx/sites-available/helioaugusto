@@ -1,0 +1,150 @@
+
+############################################################
+############ SPRINT
+############################################################
+
+#SISTEMA
+#SISTEMA
+server {
+	listen 80;
+	listen [::]:80;
+	root /desenvolvimento/helioaugusto/facilita/sprint_sistema;
+	index index.php index.html index.htm index.nginx-debian.html;
+
+	server_name sistema.sprint.helioaugusto.local.d;
+
+	location / { try_files $uri $uri/ /index.php?$query_string; }
+
+	location ~ \.php$ {
+		include snippets/fastcgi-php.conf;
+		include snippets/oll.conf;
+		
+		#fastcgi_pass 127.0.0.1:9000;
+	}
+}
+
+#PAINEL
+#PAINEL
+server {
+	listen 80;
+	listen [::]:80;
+	root /desenvolvimento/helioaugusto/facilita/sprint_painel/public;
+	index index.php index.html index.htm index.nginx-debian.html;
+
+	server_name painel.sprint.helioaugusto.local.d;
+
+	location / { try_files $uri $uri/ /index.php?$query_string; }
+
+	location ~ \.php$ {
+		include snippets/fastcgi-php.conf;
+		include snippets/oll.conf;
+		
+		#fastcgi_pass 127.0.0.1:9000;
+	}
+}
+############################################################
+############ AJUSTES
+############################################################
+
+#SISTEMA
+#SISTEMA
+server {
+	listen 80;
+	listen [::]:80;
+	root /desenvolvimento/helioaugusto/facilita/ajustes_sistema;
+	index index.php index.html index.htm index.nginx-debian.html;
+
+	server_name sistema.ajustes.helioaugusto.local.d;
+
+	location / { try_files $uri $uri/ /index.php?$query_string; }
+
+	location ~ \.php$ {
+		include snippets/fastcgi-php.conf;
+		include snippets/oll.conf;
+		
+		#fastcgi_pass 127.0.0.1:9000;
+	}
+}
+
+#PAINEL
+#PAINEL
+server {
+	listen 80;
+	listen [::]:80;
+	root /desenvolvimento/helioaugusto/facilita/ajustes_painel/public;
+	index index.php index.html index.htm index.nginx-debian.html;
+
+	server_name painel.ajustes.helioaugusto.local.d;
+
+	location / { try_files $uri $uri/ /index.php?$query_string; }
+
+	location ~ \.php$ {
+		include snippets/fastcgi-php.conf;
+		include snippets/oll.conf;
+		
+		#fastcgi_pass 127.0.0.1:9000;
+	}
+}
+############################################################
+############ LANCAMENTO
+############################################################
+
+#SISTEMA
+#SISTEMA
+server {
+	listen 80;
+	listen [::]:80;
+	root /desenvolvimento/helioaugusto/lancamento/sistema;
+	index index.php index.html index.htm index.nginx-debian.html;
+
+	server_name sistema.lancamento.helioaugusto.local.d;
+
+	location / { try_files $uri $uri/ /index.php?$query_string; }
+
+	location ~ \.php$ {
+		include snippets/fastcgi-php.conf;
+		include snippets/oll.conf;
+		
+		#fastcgi_pass 127.0.0.1:9000;
+	}
+}
+
+#PAINEL
+#PAINEL
+server {
+	listen 80;
+	listen [::]:80;
+	root /desenvolvimento/helioaugusto/lancamento/painel/public;
+	index index.php index.html index.htm index.nginx-debian.html;
+
+	server_name painel.lancamento.helioaugusto.local.d;
+
+	location / { try_files $uri $uri/ /index.php?$query_string; }
+
+	location ~ \.php$ {
+		include snippets/fastcgi-php.conf;
+		include snippets/oll.conf;
+		
+		#fastcgi_pass 127.0.0.1:9000;
+	}
+}
+
+#MOBILE AJUSTES
+#MOBILE AJUSTES
+server {
+        listen 80;
+        listen [::]:80;
+        root /desenvolvimento/helioaugusto/facilita/ajustes_mobile/mobile_novo/app;
+        index index.php index.html index.htm index.nginx-debian.html;
+
+        server_name mobile.ajustes.helioaugusto.local.d;
+
+        location / { try_files $uri $uri/ /index.php?$query_string; }
+
+        location ~ \.php$ {
+                include snippets/fastcgi-php.conf;
+                include snippets/oll.conf;
+
+                #fastcgi_pass 127.0.0.1:9000;
+        }
+}

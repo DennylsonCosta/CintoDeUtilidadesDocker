@@ -1,0 +1,82 @@
+
+############################################################
+############ SITE ABL PRIME - orlando
+############################################################
+server {
+    listen 80;
+    listen [::]:80;
+    root /desenvolvimento/orlando/facilita_outros/abl-novo;
+    index index.php index.html index.htm index.nginx-debian.html;
+
+
+    server_name ablprime.orlando.local.d;
+
+    location / { 
+        allow all;
+        try_files $uri $uri/ /index.php?$args; 
+    }
+
+    # Add trailing slash to */wp-admin requests.
+    if (!-e $request_filename) {
+        rewrite ^.*$ /index.php last;
+    }
+
+    location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+        include snippets/oll.conf;
+        
+        #fastcgi_pass 127.0.0.1:9000;
+    }
+}
+
+############################################################
+############ SITE FACILITA - orlando
+############################################################
+server {
+	listen 80;
+	listen [::]:80;
+	root /desenvolvimento/orlando/facilita_outros/site-facilita;
+	index index.php index.html index.htm index.nginx-debian.html;
+
+
+	server_name site.orlando.local.d;
+
+	location / { 
+		allow all;
+		try_files $uri $uri/ /index.php?$args; 
+	}
+
+	# Add trailing slash to */wp-admin requests.
+	if (!-e $request_filename) {
+	    rewrite ^.*$ /index.php last;
+	}
+
+	location ~ \.php$ {
+		include snippets/fastcgi-php.conf;
+		include snippets/oll.conf;
+		
+		#fastcgi_pass 127.0.0.1:9000;
+	}
+}
+
+
+############################################################
+############ IMOOVS - orlando
+############################################################
+server {
+    listen 80;
+    listen [::]:80;
+    root /desenvolvimento/orlando/facilita_outros/imoovs;
+    index index.php index.html index.htm index.nginx-debian.html;
+
+    server_name imoovs.orlando.local.d;
+
+    location / { try_files $uri $uri/ /index.php?$query_string; }
+
+    location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+        include snippets/oll.conf;
+        
+        #fastcgi_pass 127.0.0.1:9000;
+    }
+}

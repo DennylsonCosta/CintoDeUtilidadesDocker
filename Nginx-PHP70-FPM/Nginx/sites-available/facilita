@@ -1,0 +1,31 @@
+server {
+	listen 80;
+	listen [::]:80;
+
+	root /var/www/html/painel/public;
+	index index.php index.html index.htm index.nginx-debian.html;
+
+	server_name painel.ajustes.d;
+
+	location / {
+		try_files $uri $uri/ =404;
+		fastcgi_pass fpm:9000;
+        include fastcgi_params;
+	}
+}
+
+server {
+	listen 80;
+	listen [::]:80;
+
+	root /var/www/html/sistema;
+	index index.php index.html index.htm index.nginx-debian.html;
+
+	server_name sistema.ajustes.d;
+
+	location / {
+		try_files $uri $uri/ =404;
+		fastcgi_pass fpm:9000;
+        include fastcgi_params;
+	}
+}

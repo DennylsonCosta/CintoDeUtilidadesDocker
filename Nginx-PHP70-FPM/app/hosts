@@ -1,0 +1,15 @@
+127.0.0.1	localhost
+127.0.1.1	facilitadev
+52.95.165.60	gs-directory-files.s3.amazonaws.com
+54.239.19.81	sqs.us-east-1.amazonaws.com
+#system sprint
+127.0.0.1	sistema.sprint.christopher.local.d sistema.sprint.maycon.local.d sistema.sprint.dennylson.local.d sistema.sprint.filipe.local.d sistema.sprint.manoel.local.d sistema.sprint.everton.local.d sistema.sprint.bruno.local.d sistema.sprint.gustavo.local.d sistema.sprint.helioaugusto.local.d sistema.sprint.helio.local.d sistema.sprint.icaro.local.d sistema.sprint.nikson.local.d
+127.0.0.1	sistema.ajustes.christopher.local.d sistema.ajustes.maycon.local.d sistema.ajustes.dennylson.local.d sistema.ajustes.filipe.local.d sistema.ajustes.manoel.local.d sistema.ajustes.everton.local.d sistema.ajustes.bruno.local.d sistema.ajustes.gustavo.local.d sistema.ajustes.helioaugusto.local.d sistema.ajustes.helio.local.d sistema.ajustes.icaro.local.d sistema.ajustes.nikson.local.d
+127.0.0.1	sistema.ajustes.orlando.local.d
+#system adjust
+# The following lines are desirable for IPv6 capable hosts
+::1     ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters

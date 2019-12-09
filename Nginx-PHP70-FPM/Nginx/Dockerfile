@@ -1,7 +1,7 @@
 FROM debian:jessie
 MAINTAINER Matheus Fidelis <msfidelis01@gmail.com>
 
-RUN apt-get update && apt-get install -y nginx
+RUN apt-get update && apt-get install -y nginx curl nano
 
 RUN usermod -u 1000 www-data
 CMD ["nginx"]

@@ -1,0 +1,221 @@
+
+############################################################
+############ SPRINT
+############################################################
+
+#SISTEMA
+#SISTEMA
+server {
+	listen 80;
+	listen [::]:80;
+	root /desenvolvimento/filipe/facilita/sprint_sistema;
+	index index.php index.html index.htm index.nginx-debian.html;
+
+	server_name sistema.sprint.filipe.local.d;
+
+	location / { try_files $uri $uri/ /index.php?$query_string; }
+
+	location ~ \.php$ {
+		include snippets/fastcgi-php.conf;
+		include snippets/oll.conf;
+		
+		#fastcgi_pass 127.0.0.1:9000;
+	}
+}
+
+#PAINEL
+#PAINEL
+server {
+	listen 80;
+	listen [::]:80;
+	root /desenvolvimento/filipe/facilita/sprint_painel/public;
+	index index.php index.html index.htm index.nginx-debian.html;
+
+	server_name painel.sprint.filipe.local.d;
+
+	location / { try_files $uri $uri/ /index.php?$query_string; }
+
+	location ~ \.php$ {
+		include snippets/fastcgi-php.conf;
+		include snippets/oll.conf;
+		
+		#fastcgi_pass 127.0.0.1:9000;
+	}
+}
+############################################################
+############ AJUSTES
+############################################################
+
+#SISTEMA
+#SISTEMA
+server {
+	listen 80;
+	listen [::]:80;
+	root /desenvolvimento/filipe/facilita/ajustes_sistema;
+	index index.php index.html index.htm index.nginx-debian.html;
+
+	server_name sistema.ajustes.filipe.local.d sistema.ajustes.filipe.201.49.110.210.xip.io;
+
+	location / { try_files $uri $uri/ /index.php?$query_string; }
+
+	location ~ \.php$ {
+		include snippets/fastcgi-php.conf;
+		include snippets/oll.conf;
+		
+		#fastcgi_pass 127.0.0.1:9000;
+	}
+}
+
+#PAINEL
+#PAINEL
+server {
+	listen 80;
+	listen [::]:80;
+	root /desenvolvimento/filipe/facilita/ajustes_painel/public;
+	index index.php index.html index.htm index.nginx-debian.html;
+
+	server_name painel.ajustes.filipe.local.d;
+
+	location / { try_files $uri $uri/ /index.php?$query_string; }
+
+	location ~ \.php$ {
+		include snippets/fastcgi-php.conf;
+		include snippets/oll.conf;
+		
+		#fastcgi_pass 127.0.0.1:9000;
+	}
+}
+
+
+############################################################
+############ LANCAMENTO
+############################################################
+
+#SISTEMA
+#SISTEMA
+server {
+        listen 80;
+        listen [::]:80;
+        root /desenvolvimento/filipe/lancamento/sistema;
+        index index.php index.html index.htm index.nginx-debian.html;
+
+        server_name sistema.lancamento.filipe.local.d;
+
+        location / { try_files $uri $uri/ /index.php?$query_string; }
+
+        location ~ \.php$ {
+                include snippets/fastcgi-php.conf;
+                include snippets/oll.conf;
+
+                #fastcgi_pass 127.0.0.1:9000;
+        }
+}
+
+#PAINEL
+#PAINEL
+server {
+        listen 80;
+        listen [::]:80;
+        root /desenvolvimento/filipe/lancamento/painel/public;
+        index index.php index.html index.htm index.nginx-debian.html;
+
+        server_name painel.lancamento.filipe.local.d;
+
+        location / { try_files $uri $uri/ /index.php?$query_string; }
+
+        location ~ \.php$ {
+                include snippets/fastcgi-php.conf;
+                include snippets/oll.conf;
+
+                #fastcgi_pass 127.0.0.1:9000;
+        }
+}
+
+#MOBILE
+#MOBILE
+server {
+        listen 80;
+        listen [::]:80;
+        root /desenvolvimento/filipe/facilita/ajustes_mobile/mobile_novo/app;
+        index index.php index.html index.htm index.nginx-debian.html;
+
+        server_name mobile.ajustes.filipe.local.d;
+
+        location / { try_files $uri $uri/ /index.php?$query_string; }
+
+        location ~ \.php$ {
+                include snippets/fastcgi-php.conf;
+                include snippets/oll.conf;
+
+                #fastcgi_pass 127.0.0.1:9000;
+        }
+}
+
+
+############################################################
+############ INTRANET
+############################################################
+
+#SISTEMA INTRANET
+#SISTEMA INTRANET
+server {
+	listen 80;
+	listen [::]:80;
+	root /desenvolvimento/filipe/facilita/intranet_api/public;
+	index index.php index.html index.htm index.nginx-debian.html;
+
+	server_name sistema.intranet.filipe.local.d;
+
+	location / { try_files $uri $uri/ /index.php?$query_string; }
+
+	location ~ \.php$ {
+		include snippets/fastcgi-php.conf;
+		include snippets/oll.conf;
+		
+		#fastcgi_pass 127.0.0.1:9000;
+	}
+}
+
+#PAINEL INTRANET
+#PAINEL INTRANET
+server {
+        listen 80;
+        listen [::]:80;
+        root /desenvolvimento/filipe/facilita/intranet_angular;
+        index index.php index.html index.htm index.nginx-debian.html;
+
+        server_name painel.intranet.filipe.local.d;
+
+        location / { try_files $uri $uri/ /index.php?$query_string; }
+
+        location ~ \.php$ {
+                include snippets/fastcgi-php.conf;
+                include snippets/oll.conf;
+
+                #fastcgi_pass 127.0.0.1:9000;
+        }
+}
+
+
+
+#PAINEL INTRANET
+#PAINEL INTRANET
+server {
+        listen 80;
+        listen [::]:80;
+        root /desenvolvimento/filipe/facilita/processamento/public;
+        index index.php index.html index.htm index.nginx-debian.html;
+
+        server_name processamento.filipe.local.d;
+
+        location / { try_files $uri $uri/ /index.php?$query_string; }
+
+        location ~ \.php$ {
+                include snippets/fastcgi-php.conf;
+                include snippets/php71.conf;
+
+                #fastcgi_pass 127.0.0.1:9000;
+        }
+}
+
+

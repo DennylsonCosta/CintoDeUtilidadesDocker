@@ -1,0 +1,486 @@
+
+############################################################
+############ SPRINT
+
+############################################################
+
+#SISTEMA
+#SISTEMA
+server {
+	listen 80;
+	listen [::]:80;
+	root /desenvolvimento/dennylson/facilita/sprint_sistema;
+	index index.php index.html index.htm index.nginx-debian.html;
+
+	server_name sistema.sprint.dennylson.local.d sistema.sprint.dennylson.179.185.79.83.xip.io;
+
+	location / { try_files $uri $uri/ /index.php?$query_string; }
+
+	location ~ \.php$ {
+		include snippets/fastcgi-php.conf;
+		include snippets/oll.conf;
+		
+		#fastcgi_pass 127.0.0.1:9000;
+	}
+}
+#PAINEL
+#PAINEL
+server {
+	listen 80;
+	listen [::]:80;
+	root /desenvolvimento/dennylson/facilita/sprint_painel/public;
+	index index.php index.html index.htm index.nginx-debian.html;
+
+	server_name painel.sprint.dennylson.local.d painel.sprint.dennylson.179.185.79.83.xip.io;
+
+	location / { try_files $uri $uri/ /index.php?$query_string; }
+
+	location ~ \.php$ {
+		include snippets/fastcgi-php.conf;
+		include snippets/oll.conf;
+		
+		#fastcgi_pass 127.0.0.1:9000;
+	}
+}
+
+#MOBILE
+#MOBILE
+server {
+        listen 80;
+        listen [::]:80;
+        root /desenvolvimento/dennylson/facilita/ajustes_mobile/mobile_novo/app;
+        index index.php index.html index.htm index.nginx-debian.html;
+
+        server_name mobile.ajustes.dennylson.local.d;
+
+        location / { try_files $uri $uri/ /index.php?$query_string; }
+
+        location ~ \.php$ {
+                include snippets/fastcgi-php.conf;
+                include snippets/oll.conf;
+
+                #fastcgi_pass 127.0.0.1:9000;
+        }
+}
+
+############################################################
+############ AJUSTES
+############################################################
+
+#SISTEMA
+#SISTEMA
+server {
+	listen 80;
+	listen [::]:80;
+	root /desenvolvimento/dennylson/facilita/ajustes_sistema;
+	index index.php index.html index.htm index.nginx-debian.html;
+
+	server_name sistema.ajustes.dennylson.local.d;
+
+	location / { try_files $uri $uri/ /index.php?$query_string; }
+
+	location ~ \.php$ {
+		include snippets/fastcgi-php.conf;
+		include snippets/oll.conf;
+		
+		#fastcgi_pass 127.0.0.1:9000;
+	}
+}
+
+#PAINEL
+#PAINEL
+server {
+	listen 80;
+	listen [::]:80;
+	root /desenvolvimento/dennylson/facilita/ajustes_painel/public;
+	index index.php index.html index.htm index.nginx-debian.html;
+
+	server_name painel.ajustes.dennylson.local.d;
+
+	location / { try_files $uri $uri/ /index.php?$query_string; }
+
+	location ~ \.php$ {
+		include snippets/fastcgi-php.conf;
+		include snippets/oll.conf;
+		
+		#fastcgi_pass 127.0.0.1:9000;
+	}
+}
+############################################################
+############ INTRANET
+############################################################
+
+#SISTEMA INTRANET
+#SISTEMA INTRANET
+server {
+	listen 80;
+	listen [::]:80;
+	root /desenvolvimento/dennylson/facilita/intranet_api/public;
+	index index.php index.html index.htm index.nginx-debian.html;
+
+	server_name sistema.intranet.dennylson.local.d;
+
+	location / { try_files $uri $uri/ /index.php?$query_string; }
+
+	location ~ \.php$ {
+		include snippets/fastcgi-php.conf;
+		include snippets/oll.conf;
+		
+		#fastcgi_pass 127.0.0.1:9000;
+	}
+}
+
+#PAINEL INTRANET
+#PAINEL INTRANET
+server {
+        listen 80;
+        listen [::]:80;
+        root /desenvolvimento/dennylson/facilita/intranet_angular;
+        index index.php index.html index.htm index.nginx-debian.html;
+
+        server_name painel.intranet.dennylson.local.d;
+
+        location / { try_files $uri $uri/ /index.php?$query_string; }
+
+        location ~ \.php$ {
+                include snippets/fastcgi-php.conf;
+                include snippets/oll.conf;
+
+                #fastcgi_pass 127.0.0.1:9000;
+        }
+}
+
+
+############################################################
+############ LANCAMENTO
+############################################################
+
+#SISTEMA
+#SISTEMA
+server {
+	listen 80;
+	listen [::]:80;
+	root /desenvolvimento/dennylson/lancamento/sistema;
+	index index.php index.html index.htm index.nginx-debian.html;
+
+	server_name sistema.lancamento.dennylson.local.d;
+
+	location / { try_files $uri $uri/ /index.php?$query_string; }
+
+	location ~ \.php$ {
+		include snippets/fastcgi-php.conf;
+		include snippets/oll.conf;
+		
+		#fastcgi_pass 127.0.0.1:9000;
+	}
+}
+
+#PAINEL
+#PAINEL
+server {
+	listen 80;
+	listen [::]:80;
+	root /desenvolvimento/dennylson/lancamento/painel/public;
+	index index.php index.html index.htm index.nginx-debian.html;
+
+	server_name painel.lancamento.dennylson.local.d;
+
+	location / { try_files $uri $uri/ /index.php?$query_string; }
+
+	location ~ \.php$ {
+		include snippets/fastcgi-php.conf;
+		include snippets/oll.conf;
+		
+		#fastcgi_pass 127.0.0.1:9000;
+	}
+}
+
+############################################################
+############ MIGRAÇÃO
+############################################################
+
+#MIGRAÇÃO
+#MIGRAÇÃO
+server {
+        listen 80;
+        listen [::]:80;
+        root /desenvolvimento/dennylson/facilita/migracao;
+        index index.php index.html index.htm index.nginx-debian.html;
+
+        server_name migracao.dennylson.local.d;
+
+        location / { try_files $uri $uri/ /index.php?$query_string; }
+
+        location ~ \.php$ {
+                include snippets/fastcgi-php.conf;
+                include snippets/oll.conf;
+
+                #fastcgi_pass 127.0.0.1:9000;
+        }
+}
+
+
+############################################################
+############ TESTES
+############################################################
+
+#TESTE PRATICO
+#TESTE PRATICO
+server {
+        listen 80;
+        listen [::]:80;
+        root /desenvolvimento/dennylson/dennylson/testepratico/public;
+        index index.php index.html index.htm index.nginx-debian.html;
+
+        server_name testes.dennylson.local.d;
+
+        location / { try_files $uri $uri/ /index.php?$query_string; }
+
+        location ~ \.php$ {
+                include snippets/fastcgi-php.conf;
+                include snippets/oll.conf;
+
+                #fastcgi_pass 127.0.0.1:9000;
+        }
+}
+
+
+
+#PROJETO GRUPO DE INVESTIMENTOS
+#PROJETO GRUPO DE INVESTIMENTOS
+server {
+        listen 80;
+        listen [::]:80;
+        root /desenvolvimento/dennylson/dennylson/projeto-investimentos/public;
+        index index.php index.html index.htm index.nginx-debian.html;
+
+        server_name investimentos.dennylson.local.d;
+
+        location / { try_files $uri $uri/ /index.php?$query_string; }
+
+        location ~ \.php$ {
+                include snippets/fastcgi-php.conf;
+                include snippets/oll.conf;
+
+                #fastcgi_pass 127.0.0.1:9000;
+        }
+}
+
+#PROJETO OMNISTACK
+#PROJETO OMNISTACK
+server {
+        listen 80;
+        listen [::]:80;
+        root /desenvolvimento/dennylson/dennylson/omnistack;
+        index index.php index.html index.htm index.nginx-debian.html;
+
+        server_name omnistack.dennylson.local.d;
+
+        location / { try_files $uri $uri/ /index.php?$query_string; }
+
+        location ~ \.php$ {
+                include snippets/fastcgi-php.conf;
+                include snippets/oll.conf;
+
+                #fastcgi_pass 127.0.0.1:9000;
+        }
+}
+
+
+#TESTES ENTREVISTAS
+#TESTES ENTREVISTAS
+server {
+        listen 80;
+        listen [::]:80;
+        root /desenvolvimento/dennylson/testes/matheus;
+        index index.php index.html index.htm index.nginx-debian.html;
+
+        server_name teste.matheus.dennylson.local.d;
+
+        location / { try_files $uri $uri/ /index.php?$query_string; }
+
+        location ~ \.php$ {
+                include snippets/fastcgi-php.conf;
+                include snippets/oll.conf;
+
+                #fastcgi_pass 127.0.0.1:9000;
+        }
+}
+
+server {
+        listen 80;
+        listen [::]:80;
+        root /desenvolvimento/dennylson/testes/diego;
+        index index.php index.html index.htm index.nginx-debian.html;
+
+        server_name teste.diego.dennylson.local.d;
+
+        location / { try_files $uri $uri/ /index.php?$query_string; }
+
+        location ~ \.php$ {
+                include snippets/fastcgi-php.conf;
+                include snippets/oll.conf;
+
+                #fastcgi_pass 127.0.0.1:9000;
+        }
+}
+
+server {
+        listen 80;
+        listen [::]:80;
+        root /desenvolvimento/dennylson/testes/nathan/public;
+        index index.php index.html index.htm index.nginx-debian.html;
+
+        server_name teste.nathan.dennylson.local.d;
+
+        location / { try_files $uri $uri/ /index.php?$query_string; }
+
+        location ~ \.php$ {
+                include snippets/fastcgi-php.conf;
+                include snippets/oll.conf;
+
+                #fastcgi_pass 127.0.0.1:9000;
+        }
+}
+
+server {
+        listen 80;
+        listen [::]:80;
+        root /desenvolvimento/dennylson/testes/manoel/public;
+        index index.php index.html index.htm index.nginx-debian.html;
+
+        server_name teste.manoel.dennylson.local.d;
+
+        location / { try_files $uri $uri/ /index.php?$query_string; }
+
+        location ~ \.php$ {
+                include snippets/fastcgi-php.conf;
+                include snippets/oll.conf;
+
+                #fastcgi_pass 127.0.0.1:9000;
+        }
+}
+
+server {
+        listen 80;
+        listen [::]:80;
+        root /desenvolvimento/dennylson/testes/welker;
+        index index.php index.html index.htm index.nginx-debian.html;
+
+        server_name teste.welker.dennylson.local.d;
+
+        location / { try_files $uri $uri/ /index.php?$query_string; }
+
+        location ~ \.php$ {
+                include snippets/fastcgi-php.conf;
+                include snippets/oll.conf;
+
+                #fastcgi_pass 127.0.0.1:9000;
+        }
+}
+
+server {
+        listen 80;
+        listen [::]:80;
+        root /desenvolvimento/dennylson/testes/gustavo/fabricaautomotiva/public;
+        index index.php index.html index.htm index.nginx-debian.html;
+
+        server_name teste.gustavo.dennylson.local.d;
+
+        location / { try_files $uri $uri/ /index.php?$query_string; }
+
+        location ~ \.php$ {
+                include snippets/fastcgi-php.conf;
+                include snippets/php71.conf;
+
+                #fastcgi_pass 127.0.0.1:9000;
+        }
+}
+
+server {
+        listen 80;
+        listen [::]:80;
+        root /desenvolvimento/dennylson/testes/wandson/public;
+        index index.php index.html index.htm index.nginx-debian.html;
+
+        server_name teste.wandson.dennylson.local.d;
+
+        location / { try_files $uri $uri/ /index.php?$query_string; }
+
+        location ~ \.php$ {
+                include snippets/fastcgi-php.conf;
+                include snippets/php71.conf;
+
+                #fastcgi_pass 127.0.0.1:9000;
+        }
+}
+server {
+        listen 80;
+        listen [::]:80;
+        root /desenvolvimento/dennylson/testes/pablo/public;
+        index index.php index.html index.htm index.nginx-debian.html;
+
+        server_name teste.pablo.dennylson.local.d;
+
+        location / { try_files $uri $uri/ /index.php?$query_string; }
+
+        location ~ \.php$ {
+                include snippets/fastcgi-php.conf;
+                include snippets/php71.conf;
+
+                #fastcgi_pass 127.0.0.1:9000;
+        }
+}
+server {
+        listen 80;
+        listen [::]:80;
+        root /desenvolvimento/dennylson/testes/maycon;
+        index index.php index.html index.htm index.nginx-debian.html;
+
+        server_name teste.maycon.dennylson.local.d;
+
+        location / { try_files $uri $uri/ /index.php?$query_string; }
+
+        location ~ \.php$ {
+                include snippets/fastcgi-php.conf;
+                include snippets/php71.conf;
+
+                #fastcgi_pass 127.0.0.1:9000;
+        }
+}
+server {
+        listen 80;
+        listen [::]:80;
+        root /desenvolvimento/dennylson/testes/felipe;
+        index index.php index.html index.htm index.nginx-debian.html;
+
+        server_name teste.felipe.dennylson.local.d;
+
+        location / { try_files $uri $uri/ /index.php?$query_string; }
+
+        location ~ \.php$ {
+                include snippets/fastcgi-php.conf;
+                include snippets/php71.conf;
+
+                #fastcgi_pass 127.0.0.1:9000;
+        }
+}
+
+#CHAT
+server {
+        listen 80;
+        listen [::]:80;
+        root /desenvolvimento/dennylson/facilita/chat_facilita;
+        index index.php index.html index.htm index.nginx-debian.html;
+
+        server_name chat.dennylson.local.d;
+
+        location / { try_files $uri $uri/ /index.php?$query_string; }
+
+        location ~ \.php$ {
+                include snippets/fastcgi-php.conf;
+                include snippets/oll.conf;
+
+                #fastcgi_pass 127.0.0.1:9000;
+        }
+}

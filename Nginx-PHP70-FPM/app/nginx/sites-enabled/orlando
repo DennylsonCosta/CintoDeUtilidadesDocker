@@ -1,0 +1,335 @@
+############################################################
+############ TUNNEL HTTP
+############################################################
+#TUNNEL-HTTP
+server {
+        listen 80;
+        listen [::]:80;
+        root /desenvolvimento/orlando/locally/;
+        index index.php index.html index.htm index.nginx-debian.html;
+
+        server_name facilita.179.185.79.83.xip.io facilita.192.168.0.222.xip.io tunnel-facilita.201.49.110.210.xip.io tunnel.orlando.local.d;
+
+        location / { 
+		auth_basic "Restricted Content";
+	        auth_basic_user_file /etc/nginx/.htpasswd;
+		autoindex on;
+		try_files $uri $uri/ /index.php?$query_string; 
+	}
+
+        location ~ \.php$ {
+                include snippets/fastcgi-php.conf;
+                include snippets/oll.conf;
+
+#                fastcgi_pass 127.0.0.1:9000;
+        }
+}
+
+#GENERAL SSL
+#GENERAL SSL
+server {
+        listen 443;
+        root /desenvolvimento/orlando/facilita_outros;
+        #root /media/mac_orlando/facilita/ajustes_sistema;
+        index index.php index.html index.htm index.nginx-debian.html;
+
+        ssl    on;
+        ssl_certificate    /etc/ssl/wildcard.api.facilitavendas.crt;
+        ssl_certificate_key    /etc/ssl/wildcard.api.facilitavendas.key;
+
+        server_name orlando.local-server.api.facilitavendas.com orlando.local.d;
+
+        location / { try_files $uri $uri/ /index.php?$query_string; }
+
+        location ~ \.php$ {
+                include snippets/fastcgi-php.conf;
+                include snippets/oll.conf;
+
+                #fastcgi_pass 127.0.0.1:9000;
+        }
+}
+
+#GENERAL
+#GENERAL
+server {
+        listen 80;
+        listen [::]:80;
+        root /desenvolvimento/orlando;
+        index index.php index.html index.htm index.nginx-debian.html;
+
+        server_name orlando.local.d;
+
+        location / { autoindex on;try_files $uri $uri/ /index.php?$query_string; }
+
+        location ~ \.php$ {
+                include snippets/fastcgi-php.conf;
+                include snippets/oll.conf;
+
+                #fastcgi_pass 127.0.0.1:9000;
+        }
+}
+
+############################################################
+############ SPRINT
+############################################################
+
+#SISTEMA
+#SISTEMA
+server {
+	listen 80;
+	listen [::]:80;
+	root /desenvolvimento/orlando/facilita/sprint_sistema;
+	index index.php index.html index.htm index.nginx-debian.html;
+
+	server_name sistema.sprint.orlando.local.d sistema.sprint.orlando.brazil-two.servers.appfacilita.com;
+
+	location / { try_files $uri $uri/ /index.php?$query_string; }
+
+	location ~ \.php$ {
+		include snippets/fastcgi-php.conf;
+		include snippets/oll.conf;
+		
+		#fastcgi_pass 127.0.0.1:9000;
+	}
+}
+
+#PAINEL
+#PAINEL
+server {
+	listen 80;
+	listen [::]:80;
+	root /desenvolvimento/orlando/facilita/sprint_painel/public;
+	index index.php index.html index.htm index.nginx-debian.html;
+
+	server_name painel.sprint.orlando.local.d painel.sprint.orlando.brazil-two.servers.appfacilita.com;
+
+	location / { try_files $uri $uri/ /index.php?$query_string; }
+
+	location ~ \.php$ {
+		include snippets/fastcgi-php.conf;
+		include snippets/oll.conf;
+		
+		#fastcgi_pass 127.0.0.1:9000;
+	}
+}
+############################################################
+############ AJUSTES
+############################################################
+
+#SISTEMA SSL
+#SISTEMA SSL
+server {
+	listen 443;
+	root /desenvolvimento/orlando/facilita/ajustes_sistema;
+	#root /media/mac_orlando/facilita/ajustes_sistema;
+	index index.php index.html index.htm index.nginx-debian.html;
+
+	ssl    on;
+	ssl_certificate    /etc/ssl/wildcard.api.facilitavendas.crt;
+	ssl_certificate_key    /etc/ssl/wildcard.api.facilitavendas.key;
+
+	server_name local-server.api.facilitavendas.com sistema.ajustes.orlando.local-server.api.facilitavendas.com sistema.ajustes.orlando.brazil-two.servers.appfacilita.com sistema-ajustes-orlando.179.185.79.83.xip.io;
+
+	location / { try_files $uri $uri/ /index.php?$query_string; }
+
+	location ~ \.php$ {
+		include snippets/fastcgi-php.conf;
+		include snippets/oll.conf;
+		
+		#fastcgi_pass 127.0.0.1:9000;
+	}
+}
+
+#SISTEMA
+#SISTEMA
+server {
+        listen 80;
+        listen [::]:80;
+        root /desenvolvimento/orlando/facilita/ajustes_sistema;
+	#root /media/mac_orlando/facilita/ajustes_sistema;
+        index index.php index.html index.htm index.nginx-debian.html;
+
+        server_name sistema.ajustes.orlando.local.d sistema-ajustes-orlando.179.185.79.83.xip.io sistema.ajustes.orlando.201.49.110.210.xip.io;
+
+        location / { try_files $uri $uri/ /index.php?$query_string; }
+
+        location ~ \.php$ {
+                include snippets/fastcgi-php.conf;
+                include snippets/oll.conf;
+
+                #fastcgi_pass 127.0.0.1:9000;
+        }
+}
+
+#PAINEL
+#PAINEL
+server {
+	listen 80;
+	listen [::]:80;
+	root /desenvolvimento/orlando/facilita/ajustes_painel/public;
+	#root /media/mac_orlando/facilita/ajustes_painel/public;
+	index index.php index.html index.htm index.nginx-debian.html;
+
+	server_name painel.ajustes.orlando.local.d painel.ajustes.orlando.brazil-two.servers.appfacilita.com painel.ajustes.orlando.192.168.0.163.xip.io;
+
+	location / { try_files $uri $uri/ /index.php?$query_string; }
+
+	location ~ \.php$ {
+		include snippets/fastcgi-php.conf;
+		include snippets/oll.conf;
+		
+		#fastcgi_pass 127.0.0.1:9000;
+	}
+}
+############################################################
+############ LANCAMENTO
+############################################################
+
+#SISTEMA
+#SISTEMA
+server {
+	listen 80;
+	listen [::]:80;
+	root /desenvolvimento/orlando/lancamento/sistema;
+	index index.php index.html index.htm index.nginx-debian.html;
+
+	server_name sistema.lancamento.orlando.local.d sistema.lancamento.orlando.brazil-two.servers.appfacilita.com;
+
+	location / { try_files $uri $uri/ /index.php?$query_string; }
+
+	location ~ \.php$ {
+		include snippets/fastcgi-php.conf;
+		include snippets/oll.conf;
+		
+		#fastcgi_pass 127.0.0.1:9000;
+	}
+}
+
+#PAINEL
+#PAINEL
+server {
+	listen 80;
+	listen [::]:80;
+	root /desenvolvimento/orlando/lancamento/painel/public;
+	index index.php index.html index.htm index.nginx-debian.html;
+
+	server_name painel.lancamento.orlando.local.d painel.lancamento.orlando.brazil-two.servers.appfacilita.com;
+
+	location / { try_files $uri $uri/ /index.php?$query_string; }
+
+	location ~ \.php$ {
+		include snippets/fastcgi-php.conf;
+		include snippets/oll.conf;
+		
+		#fastcgi_pass 127.0.0.1:9000;
+	}
+}
+
+############################################################
+############ PRODUÇÃO
+############################################################
+
+#SISTEMA
+#SISTEMA
+server {
+	listen 80;
+	listen [::]:80;
+	root /desenvolvimento/orlando/facilita/producao_sistema;
+	index index.php index.html index.htm index.nginx-debian.html;
+
+	server_name sistema.producao.local.d;
+
+	location / { try_files $uri $uri/ /index.php?$query_string; }
+
+	location ~ \.php$ {
+		include snippets/fastcgi-php.conf;
+		include snippets/oll.conf;
+		
+		#fastcgi_pass 127.0.0.1:9000;
+	}
+}
+
+#PAINEL
+#PAINEL
+server {
+	listen 80;
+	listen [::]:80;
+	root /desenvolvimento/orlando/facilita/producao_painel/public;
+	index index.php index.html index.htm index.nginx-debian.html;
+
+	server_name painel.producao.local.d;
+
+	location / { try_files $uri $uri/ /index.php?$query_string; }
+
+	location ~ \.php$ {
+		include snippets/fastcgi-php.conf;
+		include snippets/oll.conf;
+		
+		#fastcgi_pass 127.0.0.1:9000;
+	}
+}
+############################################################
+############ INTRANET API AND PANEL
+############################################################
+
+#API
+server {
+        listen 80;
+        listen [::]:80;
+        root /desenvolvimento/orlando/intranet/api/public;
+        index index.php index.html index.htm index.nginx-debian.html;
+
+        server_name intranet.api.orlando.local.d;
+
+        location / { try_files $uri $uri/ /index.php?$query_string; }
+
+        location ~ \.php$ {
+                include snippets/fastcgi-php.conf;
+                include snippets/oll.conf;
+
+                #fastcgi_pass 127.0.0.1:9000;
+        }
+}
+
+#PANEL
+#PANEL
+server {
+        listen 80;
+        listen [::]:80;
+        root /desenvolvimento/orlando/intranet/panel;
+        index index.php index.html index.htm index.nginx-debian.html;
+
+        server_name intranet.orlando.local.d;
+
+        location / { try_files $uri $uri/ /index.php?$query_string; }
+
+        location ~ \.php$ {
+                include snippets/fastcgi-php.conf;
+                include snippets/oll.conf;
+
+                #fastcgi_pass 127.0.0.1:9000;
+	}
+}
+############################################################
+############ MIGRACAO
+############################################################
+
+#API
+server {
+        listen 80;
+        listen [::]:80;
+        root /desenvolvimento/orlando/locally/migracao;
+        index index.php index.html index.htm index.nginx-debian.html;
+
+        server_name migracao.orlando.local.d;
+
+        location / { try_files $uri $uri/ /index.php?$query_string; }
+
+        location ~ \.php$ {
+                include snippets/fastcgi-php.conf;
+                include snippets/oll.conf;
+
+                #fastcgi_pass 127.0.0.1:9000;
+        }
+}
+
